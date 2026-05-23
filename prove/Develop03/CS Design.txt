@@ -1,0 +1,50 @@
+@startuml
+
+class Program {
+    +Main(args: string[]): void
+}
+
+class Scripture {
+    -_reference: Reference
+    -_words: List<Word>
+    -_random: Random
+    +Scripture(reference: Reference, text: string)
+    +HideRandomWords(count: int): void
+    +IsCompletelyHidden(): bool
+    +GetDisplayText(): string
+}
+
+class Reference {
+    -_book: string
+    -_chapter: int
+    -_verse: int
+    -_endVerse: int
+    +Reference(book: string, chapter: int, verse: int)
+    +Reference(book: string, chapter: int, startVerse: int, endVerse: int)
+    +GetDisplayText(): string
+}
+
+class Word {
+    -_text: string
+    -_isHidden: bool
+    +Word(text: string)
+    +Hide(): void
+    +IsHidden(): bool
+    +GetDisplayText(): string
+}
+
+class Score {
+    -_points: int
+    +Score()
+    +AddPoints(points: int): void
+    +AddCompletionBonus(): void
+    +GetScore(): int
+}
+
+Program --> Scripture : uses
+Program --> Score : uses
+
+Scripture "1" --> "1" Reference : has
+Scripture "1" --> "*" Word : contains
+
+@enduml
