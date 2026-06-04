@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 public class Video
 {
     private string _title;
@@ -26,12 +24,12 @@ public class Video
 
     public void Display()
     {
-        System.Console.WriteLine($"{_title} by {_author} ({_lengthSeconds}s)");
-        System.Console.WriteLine($"Comments: {GetCommentCount()}");
+        Console.WriteLine($"{_title} by {_author} ({_lengthSeconds}s)");
+        Console.WriteLine($"Comments: {GetCommentCount()}");
 
         foreach (Comment c in _comments)
         {
-            System.Console.WriteLine($" - {c.GetDisplayText()}");
+            Console.WriteLine($" - {c.GetDisplayText()}");
         }
     }
 }

@@ -12,7 +12,7 @@ public class Event
         _description = description;
         _date = date;
         _time = time;
-        _address = address;
+        _address = address; 
     }
 
     public virtual string GetStandardDetails()
